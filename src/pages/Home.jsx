@@ -40,7 +40,7 @@ function Home() {
         <section className="max-w-full px-8">
           <article className="relative bg-secondary mobile:mx-16 dekstop:max-w-full -top-28 p-16 rounded-lg">
             <div className="flex flex-col items-center">
-              <div className="container">
+              <div className="flex flex-col items-center dekstop:container">
                 <h1 className="text-white text-[32px] text-center font-DM-sans">
                   Our Collection
                 </h1>
@@ -49,7 +49,7 @@ function Home() {
                   coffees from different roast types and origins, expertly
                   roasted in small batches and shipped fresh weekly.
                 </p>
-                <div className="flex justify-center gap-5 mt-3">
+                <div className="flex justify-center gap-5 mt-3 w-80">
                   <Button
                     ariaLable="all-products"
                     onClick={() => handleFilterProduct("all-products")}
