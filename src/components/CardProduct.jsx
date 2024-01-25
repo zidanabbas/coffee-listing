@@ -17,9 +17,13 @@ const CardProduct = (props) => {
         </span>
       </figcaption>
       <span className="inline-flex items-center gap-2 px-2">
-        <p className="text-white font-DM-sans text-sm">
-          ⭐ {rating} ({votes})
-        </p>
+        {rating && votes > 0 ? (
+          <p className="text-third font-DM-sans text-sm">
+            ⭐ {rating} ({votes} votes)
+          </p>
+        ) : (
+          <p className="text-third font-DM-sans text-sm">☆ No ratings</p>
+        )}
       </span>
     </article>
   );
