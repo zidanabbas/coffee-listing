@@ -4,15 +4,19 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      dekstop: "1280px",
+      mobile: "640px",
       tablet: "1024px",
-      mobile: "390px",
+      dekstop: "1280px",
     },
     extend: {
       colors: {
-        primary: "#111315",
-        secondary: "#1B1D1F",
-        third: "#6F757C",
+        primary: "#111315", //black
+        secondary: "#1B1D1F", //gray
+        third: "#6F757C", //light gray
+        fourth: "#BEE3CC", //price
+      },
+      fontFamily: {
+        "DM-sans": ["dm-sans", "sans-serif"],
       },
     },
   },
