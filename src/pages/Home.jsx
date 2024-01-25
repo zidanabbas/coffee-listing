@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getProducts } from "../services/product.js";
 import CardProduct from "../components/CardProduct.jsx";
 import Button from "../components/buttons/Button.jsx";
+import bgCafe from "/bg-cafe.jpg";
 
 function Home() {
   const [Products, setProducts] = useState([]);
@@ -31,14 +32,10 @@ function Home() {
     <>
       <main className="absolute w-full min-h-screen bg-primary">
         <figure className="w-full">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1661688695020-549871f98800?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODF8fGNvZmZlZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D"
-            alt=""
-            className="object-cover w-full h-96"
-          />
+          <img src={bgCafe} alt="" className="object-cover w-full h-96" />
         </figure>
         <section className="max-w-full px-8">
-          <article className="relative bg-secondary mobile:mx-16 dekstop:max-w-full -top-28 p-16 rounded-lg">
+          <article className="relative bg-secondary mobile:mx-16 dekstop:max-w-full -top-44 p-16 rounded-lg">
             <div className="flex flex-col items-center">
               <div className="flex flex-col items-center dekstop:container">
                 <h1 className="text-white text-[32px] text-center font-DM-sans">
