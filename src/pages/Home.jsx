@@ -69,6 +69,7 @@ function Home() {
                         image={product.image}
                         rating={product.rating}
                         votes={product.votes}
+                        available={product.available}
                       />
                     ))
                   : Products.map((product) => (
@@ -80,6 +81,7 @@ function Home() {
                         image={product.image}
                         rating={product.rating}
                         votes={product.votes}
+                        available={product.available}
                       />
                     ))}
               </div>
