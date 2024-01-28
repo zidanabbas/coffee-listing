@@ -8,6 +8,7 @@ function Home() {
   const [Products, setProducts] = useState([]);
   const [FilteredProducts, setFilteredProducts] = useState([]);
   const [FilterType, setFilterType] = useState(null);
+  const [isPopular, setIsPopular] = useState(false);
 
   useEffect(() => {
     getProducts((data) => {
@@ -15,17 +16,17 @@ function Home() {
     });
   }, []);
 
-  const handleFilterProduct = (type) => {
-    if (type === "available-now" && FilterType !== "available-now") {
-      const filtered = Products.filter((product) => {
-        product.available === true;
-      });
-      setFilteredProducts(filtered);
-      setFilterType("available-now");
-    } else if (type === "all-products" && FilterType !== "all-products") {
-      setFilteredProducts([]);
-      setFilterType("all-products");
-    }
+  const handleShowAll = () => {
+    setFilterType("all-products");
+    setFilteredProducts(Products);
+  };
+
+  const handleShowAvailable = () => {
+    const filtered = Products.filter((product) => {
+      return product.available === true;
+    });
+    setFilteredProducts(filtered);
+    setFilterType("available-now");
   };
 
   return (
@@ -49,46 +50,42 @@ function Home() {
                 <div className="flex justify-center gap-5 mt-3 w-80">
                   <Button
                     ariaLable="all-products"
-                    onClick={() => handleFilterProduct("all-products")}
+                    onClick={() => handleShowAll()}
                   >
                     All Products
                   </Button>
                   <Button
                     ariaLable="available-now"
-                    onClick={() => handleFilterProduct("available-now")}
+                    onClick={() => handleShowAvailable()}
                   >
                     Available Now
                   </Button>
                 </div>
               </div>
               <div className="grid tablet:grid-cols-2 dekstop:grid-cols-3 max-w-3xl mobile:max-w-4xl justify-center mt-5 p-5 gap-6 tablet:gap-10">
-                {FilterType === "available-now" ? (
-                  FilteredProducts.length > 0 ? (
-                    FilteredProducts.map((product) => (
+                {FilteredProducts.length > 0
+                  ? FilteredProducts.map((product) => (
                       <CardProduct
                         key={product.id}
                         name={product.name}
                         price={product.price}
+                        popular={product.popular}
                         image={product.image}
                         rating={product.rating}
                         votes={product.votes}
                       />
                     ))
-                  ) : (
-                    <p className="text-white text-lg">No products available</p>
-                  )
-                ) : (
-                  Products.map((product) => (
-                    <CardProduct
-                      key={product.id}
-                      name={product.name}
-                      price={product.price}
-                      image={product.image}
-                      rating={product.rating}
-                      votes={product.votes}
-                    />
-                  ))
-                )}
+                  : Products.map((product) => (
+                      <CardProduct
+                        key={product.id}
+                        name={product.name}
+                        price={product.price}
+                        popular={product.popular}
+                        image={product.image}
+                        rating={product.rating}
+                        votes={product.votes}
+                      />
+                    ))}
               </div>
             </div>
           </article>
