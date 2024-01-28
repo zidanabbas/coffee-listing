@@ -7,8 +7,6 @@ import bgCafe from "/bg-cafe.jpg";
 function Home() {
   const [Products, setProducts] = useState([]);
   const [FilteredProducts, setFilteredProducts] = useState([]);
-  const [FilterType, setFilterType] = useState(null);
-  const [isPopular, setIsPopular] = useState(false);
 
   useEffect(() => {
     getProducts((data) => {
@@ -17,7 +15,6 @@ function Home() {
   }, []);
 
   const handleShowAll = () => {
-    setFilterType("all-products");
     setFilteredProducts(Products);
   };
 
@@ -26,7 +23,6 @@ function Home() {
       return product.available === true;
     });
     setFilteredProducts(filtered);
-    setFilterType("available-now");
   };
 
   return (
