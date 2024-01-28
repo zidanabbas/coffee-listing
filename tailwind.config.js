@@ -14,9 +14,13 @@ export default {
         secondary: "#1B1D1F", //gray
         third: "#6F757C", //light gray
         fourth: "#BEE3CC", //price
+        fifth: "#ED735D", //white
       },
       fontFamily: {
         "DM-sans": ["dm-sans", "sans-serif"],
+      },
+      backgroundImage: {
+        vector: 'url("/public/vector.svg")',
       },
     },
   },
